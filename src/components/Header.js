@@ -1,7 +1,10 @@
+import React from 'react';
+import { BiLogoReact } from 'react-icons/bi';
+
 const Header = () => {
   return (
     <header className="app-header">
-      <img src="logo512.png" alt="React logo" />
+      <BiLogoReact className='logo-img'/>
       <h1>The React Quiz</h1>
     </header>
   );
