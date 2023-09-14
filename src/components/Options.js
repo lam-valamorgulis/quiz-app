@@ -1,24 +1,15 @@
 import { useQuiz } from '../contexts/QuizContext';
-import React, { createContext, useContext, useReducer } from 'react';
+import React from 'react';
 
 function Options({ question }) {
-  const { dispatch, answer } = useQuiz();
-  console.log(answer);
+  const { dispatch, answer, index } = useQuiz();
+  console.log(index);
 
   const hasAnswered = answer !== null;
 
   return (
     <div className="options">
       {question.options.map((option, index) => (
-        <button
-          className="btn"
-          key={option}
-          onClick={() => dispatch({ type: 'newAnswer', payload: index })}
-        >
-          {option}
-        </button>
-      ))}
-      {/* {question.options.map((option, index) => (
         <button
           className={`btn btn-option ${index === answer ? 'answer' : ''} ${
             hasAnswered
@@ -33,7 +24,7 @@ function Options({ question }) {
         >
           {option}
         </button>
-      ))} */}
+      ))}
     </div>
   );
 }
